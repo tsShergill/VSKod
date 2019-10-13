@@ -1,0 +1,30 @@
+{
+    "name": "kod",
+    "displayName": "Blakod",
+    "description": "Scripting language used for the MMORPG, Meridian 59.",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.39.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "kod",
+            "aliases": ["kod", "kod"],
+            "extensions": [".kod",".lkod",".khd"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "kod",
+            "scopeName": "source.kod",
+            "path": "./kod.tmLanguage.json"
+        }],
+        "snippets": [{
+            "language": "kod",
+            "scopeName": "source.kod",
+            "path": "./kod.code-snippets.json"
+        }]
+    }
+}

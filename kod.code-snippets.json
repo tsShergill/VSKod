@@ -1,0 +1,508 @@
+{
+    "if": {
+        "prefix": ["if", ],
+        "body": ["if {", "\t$0", "}"]
+    }
+
+    "else": {
+        "prefix": ["else", ],
+        "body": ["else {", "\t$0", "}"]
+    }
+
+    "Foreach": {
+      "prefix": ["for", ],
+      "body": ["foreach (${2:element} in ${1:array}) {", "\t$0", "}"]
+      "description": "Foreach loop"
+    }
+
+    "Abs": {
+        "prefix": ["Abs", ],
+        "body": ["Abs(${1:int})"]
+    }
+
+    "AddPacket": {
+        "prefix": ["AddPacket", ],
+        "body": ["AddPacket(${1:int param_byte_size},${2:param})"],
+        "description": "Takes multiple sets of param_byte_size, param"
+    }
+
+    "AddTableEntry": {
+        "prefix": ["AddTableEntry", ],
+        "body": ["AddTableEntry(${1:table},${2:key},${3:data})"]
+    }
+
+    "AppendListElem": {
+        "prefix": ["AppendListElem", ],
+        "body": ["AppendListElem(${1:element},${2:list})"],
+        "description": "Adds to END of list - use Cons unless appending is required."
+    }
+
+    "AppendTempString": {
+        "prefix": ["AppendTempString", ],
+        "body": ["AppendTempString(${1:param})"]
+    }
+
+    "BlockerAddBSP": {
+        "prefix": ["BlockerAddBSP", ],
+        "body": ["BlockerAddBSP(${1:room_data},${2:object},${3:row},${4:col},${5:fine_row},${6:fine_col})"]
+    }
+
+    "BlockerClearBSP": {
+        "prefix": ["BlockerClearBSP", ],
+        "body": ["BlockerClearBSP(${1:room_data})"],
+        "description": "Removes all blockers from room data."
+    }
+
+    "BlockerMoveBSP": {
+        "prefix": ["BlockerMoveBSP", ],
+        "body": ["BlockerMoveBSP(${1:room_data},${2:object},${3:row},${4:col},${5:fine_row},${6:fine_col})"]
+    }
+
+    "BlockerRemoveBSP": {
+        "prefix": ["BlockerRemoveBSP", ],
+        "body": ["BlockerRemoveBSP(${1:room_data})"]
+    }
+
+    "Bound": {
+        "prefix": ["Bound", ],
+        "body": ["Bound(${1:number},${2:min},${3:max})"]
+    }
+
+    "CanMoveInRoomBSP": {
+        "prefix": ["CanMoveInRoomBSP", ],
+        "body": ["CanMoveInRoomBSP(${1:room_data},${2:initial row},${3:initial col},${4:initial fine_row},${5:initial fine_col},${6:dest row},${7:dest col},${8:dest fine_row},${9:dest fine_col},${10:object},${11:bool move_outside_BSP})"]
+    }
+
+    "ChangeTextureBSP": {
+        "prefix": ["ChangeTextureBSP", ],
+        "body": ["ChangeTextureBSP(${1:room_data},${2:int sector_id},${3:id texture_num},${4:id texture_flags})"]
+    }
+
+    "ClearPacket": {
+        "prefix": ["ClearPacket", ],
+        "body": ["ClearPacket()"]
+    }
+
+    "ClearTempString": {
+        "prefix": ["ClearTempString", ],
+        "body": ["ClearTempString()"]
+    }
+
+    "Cons": {
+        "prefix": ["Cons", ],
+        "body": ["Cons(${1:list},${2:element},${3:params})"]
+    }
+
+    "Create": {
+        "prefix": ["Create", ],
+        "body": ["Create(${1:object},${2:class},${3:params})"]
+    }
+
+    "CreateTable": {
+        "prefix": ["Create", ],
+        "body": ["Create(${1:int table_size})"]
+    }
+
+    "CreateTimer": {
+        "prefix": ["CreateTimer", ],
+        "body": ["CreateTimer(${1:object},${2:message},${3:int milliseconds})"],
+        "description": "No message params allowed. Called msg receives the timer as param timer."
+    }
+
+    "Debug": {
+        "prefix": ["Debug", ],
+        "body": ["Debug(${1:params})"]
+    }
+
+    "DelLastListElem": {
+        "prefix": ["DelLastListElem", ],
+        "body": ["DelLastListElem(${1:params})"],
+        "description": "Returns $ if not passed a list, or a single-element list."
+    }
+
+    "DeleteTableEntry": {
+        "prefix": ["DeleteTableEntry", ],
+        "body": ["DeleteTableEntry(${1:table},${2:key})"]
+    }
+
+    "DeleteTimer": {
+        "prefix": ["DeleteTimer", ],
+        "body": ["DeleteTimer(${1:timer})"],
+        "description": "Returns $ if not passed a timer."
+    }
+
+    "DumpStack": {
+        "prefix": ["DumpStack", ],
+        "body": ["DumpStack()"],
+        "description": "Prints the Blakod message call stack to debug."
+    }
+
+    "FindListElem": {
+        "prefix": ["FindListElem", ],
+        "body": ["FindListElem(${1:list},${2:element})"],
+        "description": "Returns the int position of the element if found in the list, or $ if not found."
+    }
+
+    "First": {
+        "prefix": ["First", ],
+        "body": ["First(${1:list})"]
+    }
+
+    "FreeRoom": {
+        "prefix": ["FreeRoom", ],
+        "body": ["FreeRoom(${1:room_data})"],
+        "description": "Frees the room from memory. Required on room deletion."
+    }
+
+    "GetAllListNodesByClass": {
+        "prefix": ["GetAllListNodesByClass", ],
+        "body": ["GetAllListNodesByClass(${1:list},${2:int list_position},${3:class})"],
+        "description": "Position 0 checks list, 1 checks First(list) etc. Returns new list of all objects matching the class."
+    }
+
+    "GetClass": {
+        "prefix": ["GetClass", ],
+        "body": ["GetClass(${1:object})"]
+    }
+
+    "GetDateAndTime": {
+        "prefix": ["GetDateAndTime", ],
+        "body": ["GetDateAndTime(${1:year},${2:month},${3:day},${4:hour},${5:minute},${6:second})"],
+        "description": "Puts the appropriate local time values into the passed&#x0a;localvars. Accounts for daylight savings time."
+    }
+
+    "GetInactiveTime": {
+        "prefix": ["GetInactiveTime", ],
+        "body": ["GetInactiveTime(${1:session})"]
+    }
+
+    "GetListElemByClass": {
+        "prefix": ["GetListElemByClass", ],
+        "body": ["GetListElemByClass(${1:list},${2:class})"],
+        "description": "Returns first instance found, or $ if not found."
+    }
+
+    "GetListNode": {
+        "prefix": ["GetListNode", ],
+        "body": ["GetListNode(${1:list},${2:int list_position},${3:list_elem})"],
+        "description": "Checks sublists of list for list_elem at the given position.&#x0a;Returns first matching sublist, or $ if not found."
+    }
+
+    "GetLocationInfoBSP": {
+        "prefix": ["GetLocationInfoBSP", ],
+        "body": ["GetLocationInfoBSP(${1:room_data},${2:int query_flags},${3:row},${4:col},${5:fine_row},${6:fine_col},${7:local return_flags},${8:local floor_height},${9:local floor_height_with_depth},${10:local ceiling_height},${11:local sector_id})"],
+        "description": "Puts the values into the passed localvars."
+    }
+
+    "GetRandomPointBSP": {
+        "prefix": ["GetRandomPointBSP", ],
+        "body": ["GetRandomPointBSP(${1:room_data},${2:int max_attempts},${3:local row},${4:local col},${4:local fine_row},${5:local fine_col})"],
+        "description": "Puts the values into the passed localvars."
+    }
+
+    "GetSessionIP": {
+        "prefix": ["GetSessionIP", ],
+        "body": ["GetSessionIP(${1:session})"],
+        "description": "Returns a 16-element list containing IP."
+    }
+
+    "GetStepTowardsBSP": {
+        "prefix": ["GetStepTowardsBSP", ],
+        "body": ["GetStepTowardsBSP(${1:room_data},${2:row},${3:col},${4:fine_row},${5:fine_col},${6:local dest_row},${7:local dest_col},${8:local dest_finerow},${9:local dest_finecol},${10:int state_flags},${11:object})"],
+        "description": "Puts the dest values into the passed localvars; Returns $ if an error occurs."
+    }
+
+    "GetTableEntry": {
+        "prefix": ["GetTableEntry", ],
+        "body": ["GetTableEntry(${1:table},${2:key})"]
+    }
+
+    "GetTableEntry": {
+        "prefix": ["GetTableEntry", ],
+        "body": ["GetTableEntry()"]
+    }
+
+    "GetTempString": {
+        "prefix": ["GetTempString", ],
+        "body": ["GetTempString()"]
+    }
+
+    "GetTickCount": {
+        "prefix": ["GetTickCount", ],
+        "body": ["GetTickCount()"]
+    }
+
+    "GetTime": {
+        "prefix": ["GetTime", ],
+        "body": ["GetTime()"]
+    }
+
+    "GetTimeRemaining": {
+        "prefix": ["GetTimeRemaining", ],
+        "body": ["GetTimeRemaining(${1:timer})"]
+    }
+
+    "GodLog": {
+        "prefix": ["GodLog", ],
+        "body": ["GodLog(${1:params})"]
+    }
+
+    "InsertListElem": {
+        "prefix": ["InsertListElem", ],
+        "body": ["InsertListElem(${1:list},${2:int list_position},${3:element})"],
+        "description":"Inserts element at list_position in list."
+    }
+
+    "IsClass": {
+        "prefix": ["IsClass", ],
+        "body": ["IsClass(${1:object},${2:class})"]
+    }
+
+    "IsList": {
+        "prefix": ["IsList", ],
+        "body": ["IsList(${1:list})"]
+    }
+
+    "IsListMatch": {
+        "prefix": ["IsListMatch", ],
+        "body": ["IsListMatch(${1:list},{2:list})"],
+        "description":"Contents of any sub-lists are also checked."
+    }
+
+    "IsObject": {
+        "prefix": ["IsObject", ],
+        "body": ["IsObject(${1:object})"]
+    }
+
+    "IsString": {
+        "prefix": ["IsString", ],
+        "body": ["IsString(${1:string})"],
+        "description":"Checks kod strings of type TAG_STRING."
+    }
+
+    "IsTable": {
+        "prefix": ["IsTable", ],
+        "body": ["IsTable(${1:table})"]
+    }
+
+    "IsTimer": {
+        "prefix": ["IsTimer", ],
+        "body": ["IsTimer(${1:timer})"]
+    }
+
+    "Last": {
+        "prefix": ["Last", ],
+        "body": ["Last(${1:list})"]
+    }
+
+    "Length": {
+        "prefix": ["Length", ],
+        "body": ["Length(${1:list})"]
+    }
+
+    "LineOfSightBSP": {
+        "prefix": ["LineOfSightBSP", ],
+        "body": ["LineOfSightBSP(${1:room_data},${2:initial row},${3:initial col},${4:initial fine_row},${5:initial fine_col},${6:dest row},${7:dest col},${8:dest fine_row},${9:dest fine_col})"],
+        "description": "Checks if the two locations can see each other."
+    }
+
+    "LineOfSightView": {
+        "prefix": ["LineOfSightBSP", ],
+        "body": ["LineOfSightBSP(${1:int kod_angle},${2:initial row},${3:initial col},${4:initial fine_row},${5:initial fine_col},${6:dest row},${7:dest col},${8:dest fine_row},${9:dest fine_col})"],
+        "description": "Checks if the object at the initial coords can see the dest coords,&#x0a;if they are facing kod_angle degrees. Does not check BSP tree for blocking walls."
+    }
+
+    "ListCopy": {
+        "prefix": ["ListCopy", ],
+        "body": ["ListCopy(${1:list})"],
+        "description": "Makes a new copy of the list, including any sub-lists."
+    }
+
+    "LoadGame": {
+        "prefix": ["LoadGame", ],
+        "body": ["LoadGame(${1:string})"],
+        "description": "Takes a string containing a Blakserv savegame time and&#x0a;posts a message to the main thread to reload that game."
+    }
+
+    "LoadRoom": {
+        "prefix": ["LoadRoom", ],
+        "body": ["LoadRoom(${1:resource filename})"]
+    }
+
+    "MoveSectorBSP": {
+        "prefix": ["MoveSectorBSP", ],
+        "body": ["MoveSectorBSP(${1:room_data},${2:int sector_id},${3:animation_flags},${4:height},${5:speed})"]
+    }
+
+    "Nth": {
+        "prefix": ["Nth", ],
+        "body": ["Nth(${1:list},${2:int list_position})"],
+        "description": "Use First(list) instead of Nth(list,1)&#x0a;and Last(list) instead of Nth(list,Length(list))."
+    }
+
+    "ParseString": {
+        "prefix": ["ParseString", ],
+        "body": ["ParseString(${1:temp_string},${2:int list_position},${3:message})"],
+        "description": "Splits the temp_string into tokens using the debug_string as the separator,&#x0a;and calls message for each token. The token is passed as parameter string&#x0a;(but doesn't need to be added to the ParseString call."
+    }
+
+    "Post": {
+        "prefix": ["Post", ],
+        "body": ["Post(${1:object},${2:message},${3:params})"],
+        "description": "Message is called after current current message stack completed.&#x0a;Can also accept a kod string containing a message name instead of&#x0a;@Message, and a built-in object constant instead of an object."
+    }
+
+    "Random": {
+        "prefix": ["Random", ],
+        "body": ["Random(${1:int low_bound},${2:int high_bound})"],
+        "description": "Bounds are inclusive."
+    }
+
+    "RecordStat": {
+        "prefix": ["RecordStat", ],
+        "body": ["RecordStat(${1:int stat_type},${2:params})"],
+        "description": "Record data to MySQL database."
+    }
+
+    "RecycleUser": {
+        "prefix": ["RecycleUser", ],
+        "body": ["RecycleUser(${1:object})"],
+        "description": "Deletes a user object from an account and adds another of the same class.&#x0a;Posts @Delete to the old object."
+    }
+
+    "Rest": {
+        "prefix": ["Rest", ],
+        "body": ["Rest(${1:list})"],
+        "description": "Returns the list with the first element removed."
+    }
+
+    "RoomData": {
+        "prefix": ["RoomData", ],
+        "body": ["RoomData(${1:room_data})"],
+        "description": "Returns a list containing the room's max rows, cols,&#x0a;room security, high-res rows and high-res cols."
+    }
+
+    "SaveGame": {
+        "prefix": ["SaveGame", ],
+        "body": ["SaveGame()"],
+        "description": "Saves the game without GC and returns a string&#x0a;containing the Blakserv save game time."
+    }
+
+    "Send": {
+        "prefix": ["Send", ],
+        "body": ["Send(${1:object},${2:message},${3:params})"],
+        "description": "Control passes to this message. Can also accept a kod string&#x0a;containing a message name instead of @Message, and a built-in&#x0a;object constant instead of an object."
+    }
+
+    "SendCopyPacket": {
+        "prefix": ["SendCopyPacket", ],
+        "body": ["SendCopyPacket(${1:session})"]
+    }
+
+    "SendList": {
+        "prefix": ["SendList", ],
+        "body": ["SendList(${1:list},${2:int list_position},${3:message},${4:message params})"],
+        "description": "Calls the message on each object in the list.&#x0a;Position 0 indicates the objects are in list, pos 1 &#x0a;sends to First(list), etc.&#x0a;Can also accept a kod string containing a message name instead&#x0a;of @Message and a built-in object constant  instead of an object."
+    }
+
+    "SendListBreak": {
+        "prefix": ["SendListBreak", ],
+        "body": ["SendListBreak(${1:list},${2:int list_position},${3:message},${4:message params})"],
+        "description": "Calls the message on each object in the list, but will stop&#x0a;calling and return false if any called message returns false.&#x0a;Position 0 indicates the objects are in list, pos 1 sends to&#x0a;First(list), etc. Can also accept a kod string containing a&#x0a;message name instead of @Message, and a built-in object constant&#x0a;instead of an object."
+    }
+
+    "SendListByClass": {
+        "prefix": ["SendListByClass", ],
+        "body": ["SendListByClass(${1:list},${2:int list_position},${3:class},${4:message},${5:message params})"],
+        "description": "Calls the message on each object in the list matching the given class.&#x0a;Position 0 indicates the objects are in list, pos 1 sends to&#x0a;First(list), etc. Can also accept a kod string containing a message name&#x0a;instead of @Message, and a built-in object constant instead of an object."
+    }
+
+    "SendListByClassBreak": {
+        "prefix": ["SendListByClassBreak", ],
+        "body": ["SendListByClassBreak(${1:list},${2:int list_position},${3:class},${4:message},${5:message params})"],
+        "description": "Calls the message on each object in the list matching the given class.&#x0a;Stops calling and returns false if any called message returns false.&#x0a;Position 0 indicates the objects are in list, pos 1 sends to First(list), etc.&#x0a;Can also accept a kod string containing a message name instead of @Message,&#x0a;and a built-in object constant instead of an object."
+    }
+
+    "SendPacket": {
+        "prefix": ["SendPacket", ],
+        "body": ["SendPacket(${1:session})"]
+    }
+
+    "SetClassVar": {
+        "prefix": ["SetClassVar", ],
+        "body": ["SetClassVar(${1:class},${2:debug_string classvar_name},${3:data})"],
+        "description": "Sets the classvar to the given data value. Classvar remains set until system is reloaded from file."
+    }
+
+    "SetFirst": {
+        "prefix": ["SetFirst", ],
+        "body": ["SetFirst(${1:list},${2:int list_position},${3:data})"],
+        "description": "Use SetFirst(list,data) instead of SetNth(list,1,data)."
+    }
+
+    "SetNth": {
+        "prefix": ["SetNth", ],
+        "body": ["SetNth(${1:list},${2:int list_position},${3:data})"],
+        "description": "Use SetNth(list,data) instead of SetNth(list,1,data)."
+    }
+
+    "SetResource": {
+        "prefix": ["SetNth", ],
+        "body": ["SetNth(${1:dynamic_resource},${2:string})"],
+        "description": "Sets a dynamic resource to the string value of&#x0a;a resource, a kod string or the temp string."
+    }
+
+    "SetString": {
+        "prefix": ["SetString", ],
+        "body": ["SetString(${1:string1},${2:string2})"],
+        "description": "Sets string1 to the string value of string 2.&#x0a;String1 must be either a kod string (TAG_STRING)&#x0a;or $, in which case a new string is made."
+    }
+
+    "Sqrt": {
+        "prefix": ["Sqrt", ],
+        "body": ["Sqrt(${1:int})"]
+    }
+
+    "StringConsistsOf": {
+        "prefix": ["StringConsistsOf", ],
+        "body": ["StringConsistsOf(${1:string1},${2:string2})"],
+        "description": "Takes any type of string or resource,&#x0a;returns true if all the characters&#x0a;from string1 are present in s2."
+    }
+
+    "StringContain": {
+        "prefix": ["StringContain", ],
+        "body": ["StringContain(${1:string1},${2:string2})"],
+        "description": "Returns true if string1 contains the string value of string2."
+    }
+
+    "StringEqual": {
+        "prefix": ["StringEqual", ],
+        "body": ["StringEqual(${1:string1},${2:string2})"],
+        "description": "Returns true if string1 is the same as string2."
+    }
+
+    "StringLength": {
+        "prefix": ["StringLength", ],
+        "body": ["StringLength(${1:string})"],
+        "description": "Returns $ if the string wasn't found."
+    }
+
+    "StringSubstitute": {
+        "prefix": ["StringSubstitute", ],
+        "body": ["StringSubstitute(${1:string},${2:search_string},${3:sub_string})"],
+        "description": "Substitutes the first occurrence of search_string in string&#x0a;with sub_string. Returns $ on error, 1 if substitution&#x0a;occurred, 0 if the string was not found."
+    }
+
+    "StringToNumber": {
+        "prefix": ["StringToNumber", ],
+        "body": ["StringToNumber(${1:string})"],
+        "description": "Returns the int value of a string, if the string contains a number."
+    }    
+
+    "SwapListElem": {
+        "prefix": ["SwapListElem", ],
+        "body": ["SwapListElem(${1:list},${2:int list_pos_1},${3:int list_pos_2})"],
+        "description": "Swaps the data in the two locations in the list.&#x0a;Returns $ as the list nodes are all still valid."
+    }
+
+}
