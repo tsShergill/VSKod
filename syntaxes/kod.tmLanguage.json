@@ -1,0 +1,71 @@
+{
+	"name": "kod",
+	"scopeName": "source.kod",
+
+	"patterns": [
+		{
+			"comment": "Comment line",
+			"name": "comment.line.double-slash.kod",
+			"match": "//.*$"
+		},
+		{
+			"comment": "Comment block",
+			"name": "comment.block.kod",
+			"begin": "\\/\\*",
+			"end": "\\*\\/"
+		},
+		{
+			"comment": "control keywords (such as if, else, ect.)",
+			"name": "keyword.control.kod",
+			"match": "\\b(if|else|switch|case|default|for|foreach|do|while|local|return|propagate|break|continue|include|end|is|in)\\b"
+		},
+		{
+			"comment": "operators",
+			"name": "keyword.operator.kod",
+			"match": "\\b(AND|&&|OR|<>|NOT)\\b"
+		},
+		{
+			"comment": "language constants",
+			"name": "constant.language.kod",
+			"match": "\\b(TRUE|FALSE)\\b"
+		},
+		{
+			"comment": "C Calls",
+			"name": "entity.name.function.kod",
+			"match": "\\b(Post|Send|SendList|SendListBreak|SendListByClass|SendListByClassBreak|Abs|AddPacket|AddTableEntry|AppendListElem|AppendTempString|BlockerAddBSP|BlockerClearBSP|BlockerMoveBSP|BlockerRemoveBSP|Bound|CanMoveInRoomBSP|ChangeTextureBSP|ClearPacket|ClearTempString|Cons|Create|CreateString|CreateTable|CreateTimer|Debug|DeleteTableEntry|DeleteTimer|DelLastListElem|DelListElem|DumpStack|FindListElem|First|FreeRoom|GetAllListNodesByClass|GetClass|GetDateAndTime|GetInactiveTime|GetListElemByClass|GetListNode|GetLocationInfoBSP|GetRandomPointBSP|GetSessionIP|GetStepTowardsBSP|GetTableEntry|GetTempString|GetTickCount|GetTime|GetTimeRemaining|GodLog|InsertListElem|IsClass|IsList|IsListMatch|IsObject|IsString|IsTable|IsTimer|Last|Length|LineOfSightBSP|LineOfSightView|ListCopy|LoadGame|LoadRoom|MoveSectorBSP|Nth|ParseString|Random|RecordStat|RecycleUser|Rest|RoomData|SaveGame|SendCopyPacket|SendPacket|SetClassVar|SetFirst|SetNth|SetResource|SetString|Sqrt|StringConsistsOf|StringContain|StringEqual|StringLength|StringSubstitute|StringToNumber|SwapListElem)\\b"
+		},
+		{
+			"comment": "headers",
+			"name": "entity.name.section",
+			"match": "\\b(constants|resources|classvars|properties|messages)\\b"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"comment": "self variable",
+			"name": "variable.language",
+			"match": "self"
+		},
+		{
+			"comment": "parameters",
+			"name": "variable.parameter",
+			"match": "#[a-zA-Z0-9_]+"
+		}
+	],
+
+	"repository": {
+		"strings": {
+			"name": "string.quoted.double.kod",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.kod",
+					"match": "\\\\."
+				}
+			]
+		}
+	}
+
+}
