@@ -21,7 +21,7 @@ Navigate to settings.json
 - macOS: `$HOME/Library/Application Support/Code/User/settings.json`
 - Linux: `$HOME/.config/Code/User/settings.json`
 
-Include the following line before.
+Include the following line.
 ```
     "[kod]": {
         "files.encoding" : "windows1252"
@@ -30,7 +30,7 @@ Include the following line before.
 
 ### Hide .bof and .rsc in the file explorer.
 
-To hide compiled kods, include the following in settings.json as well:
+To hide compiled kods from the explorer pane, include the following in settings.json:
 
 ```
     "files.exclude": {
