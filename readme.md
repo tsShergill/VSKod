@@ -16,9 +16,21 @@ To start using the extension with Visual Studio Code copy this repo it into the 
 - macOS: `~/.vscode/extensions`
 - Linux: `~/.vscode/extensions`
 
+Navigate to settings.json
+- Windows: `%APPDATA%\Code\User\settings.json`
+- macOS: `$HOME/Library/Application Support/Code/User/settings.json`
+- Linux: `$HOME/.config/Code/User/settings.json`
+
+Include the following line before.
+```
+    "[kod]": {
+        "files.encoding" : "windows1252"
+     }
+```
+
 ### Hide .bof and .rsc in the file explorer.
 
-To hide compiled kods, include the following in settings.json:
+To hide compiled kods, include the following in settings.json as well:
 
 ```
     "files.exclude": {
@@ -26,8 +38,3 @@ To hide compiled kods, include the following in settings.json:
         "**/*.rsc": { "when": "$(basename).kod"}
     }
 ```
-
-- Windows: %APPDATA%\Code\User\settings.json
-- macOS: $HOME/Library/Application Support/Code/User/settings.json
-- Linux: $HOME/.config/Code/User/settings.json
-
